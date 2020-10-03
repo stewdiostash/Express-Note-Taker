@@ -33,19 +33,20 @@ app.get("*", function(req, res) {
 // API Routes
 
 app.get("/api/notes", function(req,res){
-    res.sendFile(path.join(__dirname, "./db/db.json"));
+    res.sendFile(path.join(__dirname, "db/db.json"));
 })
 
 app.post("/api/notes", function(req, res) {
     console.log(req.body);
-    fs.readFile("./db/db.json", "utf-8", (err, data) => {
+    fs.readFile("db/db.json", "utf-8", (err, data) => {
         if (err) throw err;
         const updatedData = JSON.parse(data);
         req.body.id = updatedData.length;
         updatedData.push(req.body);
         console.log(updatedData);
-        fs.writeFile("./db/db.json", JSON.stringify(updatedData), (err) => {
+        fs.writeFile("db/db.json", JSON.stringify(updatedData), "UTF-8", (err) => {
             if (err) throw err;
+            res.json(updatedData);
         });
     });
 });
