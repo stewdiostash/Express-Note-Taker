@@ -16,7 +16,7 @@ A basic notetaker to to add, edit and delete notes via get, post and delete rout
 
 ## Screenshot
 
-![Weather Dashboard UI](note-taker-ui.png)
+![Note Taker UI](images/note-taker-ui.png)
 
 
 ## URL

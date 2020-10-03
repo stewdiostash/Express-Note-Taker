@@ -44,20 +44,6 @@ app.post("/api/notes", function(req, res) {
     });
 });
 
-// app.delete("/api/notes/:id", (req, res) => {
-//     fs.readFile("./db/db.json", "utf-8", (err, data) => {
-//         if (err) throw err;
-//         const list = JSON.parse(data);
-//         updatedData = list.filter((data) => {
-//             return data.id != req.params.id;
-//         });
-//         fs.writeFile("./db/db.json", JSON.stringify(notesList), "utf-8", (err) => {
-//             if (err) throw err;
-//             res.json(updatedData);
-//         })
-//     })
-// })
-
 
 // HTML Routes
 
