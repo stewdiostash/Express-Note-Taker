@@ -19,15 +19,7 @@ app.use(express.static("public"));
 // app.use("/api", apiroutes);
 // app.use("/", htmlroutes);
 
-// HTML Routes
 
-app.get("/notes", function(req, res) {
-    res.sendFile(path.join(__dirname, "/public/notes.html"));
-});
-
-app.get("*", function(req, res) {
-    res.sendFile(path.join(__dirname, "/public/index.html"));
-});
 
 
 // API Routes
@@ -46,16 +38,36 @@ app.post("/api/notes", function(req, res) {
         console.log(updatedData);
         fs.writeFile("db/db.json", JSON.stringify(updatedData), "UTF-8", (err) => {
             if (err) throw err;
-            res.json(updatedData);
+            // res.json(updatedData);
         });
+        res.json(updatedData);
     });
 });
 
+// app.delete("/api/notes/:id", (req, res) => {
+//     fs.readFile("./db/db.json", "utf-8", (err, data) => {
+//         if (err) throw err;
+//         const list = JSON.parse(data);
+//         updatedData = list.filter((data) => {
+//             return data.id != req.params.id;
+//         });
+//         fs.writeFile("./db/db.json", JSON.stringify(notesList), "utf-8", (err) => {
+//             if (err) throw err;
+//             res.json(updatedData);
+//         })
+//     })
+// })
 
 
+// HTML Routes
 
+app.get("/notes", function(req, res) {
+    res.sendFile(path.join(__dirname, "/public/notes.html"));
+});
 
-
+app.get("*", function(req, res) {
+    res.sendFile(path.join(__dirname, "/public/index.html"));
+});
 
 
 // Listener

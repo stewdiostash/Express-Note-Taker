@@ -11,21 +11,21 @@
 
 ## Description
 
-A basic notetaker 
+A basic notetaker to to add, edit and delete notes via get, post and delete routes. WIP.
 
 
 ## Screenshot
 
-![Weather Dashboard UI](images/weather_dashboard_ui.png)
+![Weather Dashboard UI](note-taker-ui.png)
 
 
 ## URL
-Deployed at https://stewdiostash.github.io/hw-06-weather-dashboard/
+Deployed at https://nifty-note-taker.herokuapp.com/
 
 
 ## Contributions
 
-Thanks to Philip Simmons for a few pointers on nested functions.
+Many thanks to my patient classmates and tutor.
 
 
 ## License
