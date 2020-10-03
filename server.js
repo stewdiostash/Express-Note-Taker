@@ -2,6 +2,8 @@
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
+// const apiroutes = require("./routes/apiroutes");
+// const htmlroutes = require("./routes/htmlroutes")
 
 // Tells node that we are creating an "express" server
 const app = express();
@@ -14,6 +16,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
+// app.use("/api", apiroutes);
+// app.use("/", htmlroutes);
 
 // HTML Routes
 
@@ -28,19 +32,8 @@ app.get("*", function(req, res) {
 
 // API Routes
 
-app.get("/api/notes", function(req, res) {
-    fs.readFile("./db/db.json", "utf-8", (err, data) => {
-        let parsedNotes;
-        try {
-            parsedNotes = [].concat(JSON.parse(data));
-        } catch (error) {
-            parsedNotes = [];
-        }
-        console.log(parsedNotes);
-        return parsedNotes;
-    })
-
-
+app.get("/api/notes", function(req,res){
+    res.sendFile(path.join(__dirname, "./db/db.json"));
 })
 
 app.post("/api/notes", function(req, res) {
@@ -57,9 +50,9 @@ app.post("/api/notes", function(req, res) {
     });
 });
 
-app.delete("/api/notes/:id", function(req, res) {
 
-})
+
+
 
 
 
